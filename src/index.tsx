@@ -1,8 +1,10 @@
+import React, { ForwardedRef } from 'react';
 import {
   requireNativeComponent,
   UIManager,
   Platform,
   ViewStyle,
+  StyleProp,
 } from 'react-native';
 
 const LINKING_ERROR =
@@ -11,16 +13,23 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-type TvFocusWrapperProps = {
-  color: string;
-  style: ViewStyle;
-};
+interface TvFocusWrapperProps {
+  style?: StyleProp<ViewStyle>;
+  children?: object;
+  ref?: ForwardedRef<TvFocusWrapperProps>
+}
 
 const ComponentName = 'TvFocusWrapperView';
 
-export const TvFocusWrapperView =
+const TvFocusWrapperViewComponent =
   UIManager.getViewManagerConfig(ComponentName) != null
     ? requireNativeComponent<TvFocusWrapperProps>(ComponentName)
     : () => {
         throw new Error(LINKING_ERROR);
       };
+
+const TvFocusWrapperView = React.forwardRef((props: TvFocusWrapperProps, ref: ForwardedRef<TvFocusWrapperProps>) => {
+  return <TvFocusWrapperViewComponent ref={ref} style={props.style}>{props.children}</TvFocusWrapperViewComponent>;
+});
+
+export default TvFocusWrapperView;
