@@ -5,6 +5,7 @@ import {
   Platform,
   ViewStyle,
   StyleProp,
+  NativeSyntheticEvent,
 } from 'react-native';
 
 const LINKING_ERROR =
@@ -13,10 +14,22 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
+type Event = NativeSyntheticEvent<
+  Readonly<{
+    value: number;
+    /**
+     * Android Only.
+     */
+    fromUser?: boolean;
+  }>
+>;
 interface TvFocusWrapperProps {
   style?: StyleProp<ViewStyle>;
   children?: object;
-  ref?: ForwardedRef<TvFocusWrapperProps>
+  ref?: ForwardedRef<TvFocusWrapperProps>;
+  onFocus?: (e: Event) => void;
+  onBlur?: (e: Event) => void;
+  onPress?: (e: Event) => void;
 }
 
 const ComponentName = 'TvFocusWrapperView';
@@ -28,8 +41,20 @@ const TvFocusWrapperViewComponent =
         throw new Error(LINKING_ERROR);
       };
 
-const TvFocusWrapperView = React.forwardRef((props: TvFocusWrapperProps, ref: ForwardedRef<TvFocusWrapperProps>) => {
-  return <TvFocusWrapperViewComponent ref={ref} style={props.style}>{props.children}</TvFocusWrapperViewComponent>;
-});
+const TvFocusWrapperView = React.forwardRef(
+  (props: TvFocusWrapperProps, ref: ForwardedRef<TvFocusWrapperProps>) => {
+    return (
+      <TvFocusWrapperViewComponent
+        ref={ref}
+        style={props.style}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
+        onPress={props.onPress}
+      >
+        {props.children}
+      </TvFocusWrapperViewComponent>
+    );
+  }
+);
 
 export default TvFocusWrapperView;
