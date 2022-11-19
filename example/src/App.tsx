@@ -16,7 +16,7 @@ const ItemWrapper: React.FC<{
     [isLast, setRef]
   );
   return (
-    <TvFocusWrapperView ref={onRef} style={styles.boxContainer}>
+    <TvFocusWrapperView scale="1.3" ref={onRef} style={styles.boxContainer}>
       <View style={styles.box} />
     </TvFocusWrapperView>
   );
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
   },
   boxContainer: {
-    marginHorizontal: 10,
+    marginHorizontal: 30,
+    marginVertical: 30,
   },
   vertical: {
     marginVertical: 10,

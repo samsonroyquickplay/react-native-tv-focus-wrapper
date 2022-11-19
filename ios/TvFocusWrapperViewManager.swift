@@ -13,6 +13,7 @@ class TvFocusWrapperView : UIView {
     @objc var onFocus: RCTBubblingEventBlock?
     @objc var onBlur: RCTBubblingEventBlock?
     @objc var onPress: RCTBubblingEventBlock?
+    @objc var scale: NSString?
     let event = ["value": "focusEvent"]
     let pressEvent = ["value": "pressEvent"]
     
@@ -53,6 +54,8 @@ class TvFocusWrapperView : UIView {
       coordinator.addCoordinatedAnimations({ () -> Void in
         self.layer.borderWidth = 4
         self.layer.borderColor = UIColor.white.cgColor
+          let scaleFactor = CGFloat(Float(self.scale! as Substring) ?? 1)
+          self.layer.transform = CATransform3DMakeScale(scaleFactor, scaleFactor, scaleFactor)
     }, completion: nil)
 
     } else if context.previouslyFocusedView == self {
@@ -62,6 +65,7 @@ class TvFocusWrapperView : UIView {
       coordinator.addCoordinatedAnimations({ () -> Void in
         self.layer.borderWidth = 0
         self.layer.backgroundColor = UIColor.clear.cgColor
+          self.layer.transform = CATransform3DMakeScale(1, 1, 1)
       }, completion: nil)
     }
   }
