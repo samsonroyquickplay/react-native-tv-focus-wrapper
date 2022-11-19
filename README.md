@@ -11,11 +11,12 @@ npm install react-native-tv-focus-wrapper
 ## Usage
 
 ```js
-import { TvFocusWrapperView } from "react-native-tv-focus-wrapper";
+import TvFocusWrapperView from "react-native-tv-focus-wrapper";
 
 // ...
-
-<TvFocusWrapperView color="tomato" />
+<TvFocusWrapperView>
+  <View style={{ width: 100, height: 100, backgroundColor: 'blue' }} />
+</TvFocusWrapperView>
 ```
 
 ## Contributing
