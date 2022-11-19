@@ -31,6 +31,7 @@ interface TvFocusWrapperProps {
   onFocus?: (e: Event) => void;
   onBlur?: (e: Event) => void;
   onPress?: (e: Event) => void;
+  focusable?: boolean;
 }
 
 const ComponentName = 'TvFocusWrapperView';
@@ -48,6 +49,7 @@ const TvFocusWrapperView = React.forwardRef(
       <TvFocusWrapperViewComponent
         ref={ref}
         style={props.style}
+        focusable={props.focusable ?? true}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
         onPress={props.onPress}

@@ -14,6 +14,7 @@ class TvFocusWrapperView : UIView {
     @objc var onBlur: RCTBubblingEventBlock?
     @objc var onPress: RCTBubblingEventBlock?
     @objc var scale: NSString?
+    @objc var focusable: NSNumber? = 1
     let event = ["value": "focusEvent"]
     let pressEvent = ["value": "pressEvent"]
     
@@ -41,7 +42,7 @@ class TvFocusWrapperView : UIView {
   }
     
   override var canBecomeFocused: Bool {
-    return true
+      return self.focusable == 1
   }
     
     
