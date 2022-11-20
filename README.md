@@ -1,6 +1,6 @@
 # react-native-tv-focus-wrapper
 
-React native tv focus wrapper
+React native tv focus wrapper, this wrapper was made to overcome focus delay issues when setting style from JS thread. Now we only support TVOS and soon androidTV and firestick. One other pending issue is to send animation and focus style from RN.
 
 ## Installation
 
