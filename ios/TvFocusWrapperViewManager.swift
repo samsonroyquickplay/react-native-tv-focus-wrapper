@@ -54,10 +54,11 @@ class TvFocusWrapperView : UIView {
             onFocus!(self.event)
         }
       coordinator.addCoordinatedAnimations({ () -> Void in
-        self.layer.borderWidth = 4
         if (self.enableFocusStyle == 1) {
+          self.layer.borderWidth = 4
           self.layer.borderColor = UIColor.white.cgColor
         } else {
+          self.layer.borderWidth = 0
           self.layer.backgroundColor = UIColor.clear.cgColor
         }
           let scaleFactor = CGFloat(Float(self.scale! as Substring) ?? 1)
