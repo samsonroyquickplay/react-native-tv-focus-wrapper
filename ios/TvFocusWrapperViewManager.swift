@@ -18,8 +18,11 @@ class TvFocusWrapperView : UIView {
     @objc var focusable: NSNumber? = 1
     @objc var enableFocusStyle: NSNumber? = 1
     @objc var borderStyle: NSDictionary?
+    @objc var gradientProps: NSDictionary?
+    @objc var enableGradient: NSNumber? = 1
     let event = ["value": "focusEvent"]
     let pressEvent = ["value": "pressEvent"]
+    let gradientLayer = CAGradientLayer()
     
     
     init() {
@@ -63,9 +66,18 @@ class TvFocusWrapperView : UIView {
                     } else {
                         self.layer.borderColor = UIColor.white.cgColor
                     }
+                    if(self.enableGradient == 1){
+                        if let colorTop = self.gradientProps?["colorTop"] as? String, let colorBottom = self.gradientProps?["colorBottom"] as? String {
+                            self.gradientLayer.colors = [UIColor(hex: colorTop)?.cgColor ??  UIColor.clear.cgColor, UIColor(hex: colorBottom)?.cgColor ??  UIColor.clear.cgColor]
+                        }
+                        self.gradientLayer.locations = [0.0, 1.0]
+                        self.gradientLayer.frame = self.bounds
+                        self.layer.insertSublayer(self.gradientLayer, at:0)
+                    }
                 } else {
                     self.layer.borderWidth = 0
                     self.layer.backgroundColor = UIColor.clear.cgColor
+                    self.gradientLayer.removeFromSuperlayer()
                 }
                 let scaleFactor = CGFloat(Float(self.scale! as Substring) ?? 1)
                 self.layer.transform = CATransform3DMakeScale(scaleFactor, scaleFactor, scaleFactor)
@@ -79,6 +91,7 @@ class TvFocusWrapperView : UIView {
                 self.layer.borderWidth = 0
                 self.layer.backgroundColor = UIColor.clear.cgColor
                 self.layer.transform = CATransform3DMakeScale(1, 1, 1)
+                self.gradientLayer.removeFromSuperlayer()
             }, completion: nil)
         }
     }

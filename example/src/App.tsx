@@ -21,6 +21,8 @@ const ItemWrapper: React.FC<{
       ref={onRef}
       style={styles.boxContainer}
       borderStyle={styles.borderStyle}
+      enableGradient={true}
+      gradientProps={{ colorBottom: '#490E0E', colorTop: '#000000' }}
     >
       <View style={styles.box} />
     </TvFocusWrapperView>
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
   box: {
     width: 200,
     height: 200,
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
   },
   boxContainer: {
     marginHorizontal: 30,
