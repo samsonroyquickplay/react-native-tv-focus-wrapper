@@ -16,7 +16,12 @@ const ItemWrapper: React.FC<{
     [isLast, setRef]
   );
   return (
-    <TvFocusWrapperView scale="1.3" ref={onRef} style={styles.boxContainer}>
+    <TvFocusWrapperView
+      scale="1.3"
+      ref={onRef}
+      style={styles.boxContainer}
+      borderStyle={styles.borderStyle}
+    >
       <View style={styles.box} />
     </TvFocusWrapperView>
   );
@@ -81,4 +86,5 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     backgroundColor: 'red',
   },
+  borderStyle: { borderWidth: 4, borderColor: '#98ffcc' },
 });

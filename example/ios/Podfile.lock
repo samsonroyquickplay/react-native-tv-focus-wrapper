@@ -200,7 +200,7 @@ PODS:
   - React-jsinspector (0.69.6-0)
   - React-logger (0.69.6-0):
     - glog
-  - react-native-tv-focus-wrapper (0.1.0):
+  - react-native-tv-focus-wrapper (0.2.8):
     - React-Core
   - React-perflogger (0.69.6-0)
   - React-RCTAnimation (0.69.6-0):
@@ -384,7 +384,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 2e58a8faffdd27294d98fdde643ddbc1c6ed33b4
   React-jsinspector: 68d1645356b5b387d9e4afbe6a42a3c22965be7d
   React-logger: 3df6481eff39de103fbc963cf9355332697264a4
-  react-native-tv-focus-wrapper: 6a2137a2e0a19a600a34d0b3b873e941d50f4706
+  react-native-tv-focus-wrapper: 20ae6308e1e2477caecea4f5d17457d1bd411e65
   React-perflogger: b4286f50e775f757b356ed77d993e70ab4041c6e
   React-RCTAnimation: dbf81b8d90128de2413ba659269bcc2d104d7794
   React-RCTBlob: 5384bf7d73e16b1c61324e58991236bd1bbd569e
