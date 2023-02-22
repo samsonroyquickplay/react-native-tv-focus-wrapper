@@ -23,7 +23,7 @@ type Event = NativeSyntheticEvent<
     fromUser?: boolean;
   }>
 >;
-interface TvFocusWrapperProps {
+export interface TvFocusWrapperProps {
   style?: StyleProp<ViewStyle>;
   children?: object;
   ref?: ForwardedRef<TvFocusWrapperProps>;
@@ -34,6 +34,8 @@ interface TvFocusWrapperProps {
   focusable?: boolean;
   enableFocusStyle?: boolean;
   borderStyle?: { borderWidth: number; borderColor: string };
+  gradientProps?: { colorTop: string; colorBottom: string };
+  enableGradient?: boolean;
 }
 
 const ComponentName = 'TvFocusWrapperView';
@@ -58,6 +60,8 @@ const TvFocusWrapperView = React.forwardRef(
         scale={props.scale ?? '1'}
         enableFocusStyle={props.enableFocusStyle ?? true}
         borderStyle={props.borderStyle}
+        enableGradient={props.enableGradient}
+        gradientProps={props.gradientProps}
       >
         {props.children}
       </TvFocusWrapperViewComponent>
