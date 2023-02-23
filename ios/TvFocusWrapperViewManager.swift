@@ -17,7 +17,7 @@ class TvFocusWrapperView : UIView {
     @objc var scale: NSString?
     @objc var focusable: NSNumber? = 1
     @objc var enableFocusStyle: NSNumber? = 1
-    @objc var borderStyle: NSDictionary?
+    @objc var focusStyle: NSDictionary?
     @objc var gradientProps: NSDictionary?
     @objc var enableGradient: NSNumber? = 1
     let event = ["value": "focusEvent"]
@@ -60,8 +60,8 @@ class TvFocusWrapperView : UIView {
             }
             coordinator.addCoordinatedAnimations({ () -> Void in
                 if (self.enableFocusStyle == 1) {
-                    self.layer.borderWidth = self.borderStyle?["borderWidth"] as? CGFloat ?? 4
-                    if let borderColor = self.borderStyle?["borderColor"] as? String {
+                    self.layer.borderWidth = self.focusStyle?["borderWidth"] as? CGFloat ?? 4
+                    if let borderColor = self.focusStyle?["borderColor"] as? String {
                         self.layer.borderColor = UIColor(hex: borderColor)?.cgColor
                     } else {
                         self.layer.borderColor = UIColor.white.cgColor

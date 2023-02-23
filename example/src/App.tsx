@@ -20,7 +20,7 @@ const ItemWrapper: React.FC<{
       scale="1.3"
       ref={onRef}
       style={styles.boxContainer}
-      borderStyle={styles.borderStyle}
+      focusStyle={styles.focusStyle}
       enableGradient={true}
       gradientProps={{ colorBottom: '#490E0E', colorTop: '#000000' }}
     >
@@ -88,5 +88,5 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     backgroundColor: 'red',
   },
-  borderStyle: { borderWidth: 4, borderColor: '#98ffcc' },
+  focusStyle: { borderWidth: 4, borderColor: '#98ffcc' },
 });

@@ -33,7 +33,7 @@ export interface TvFocusWrapperProps {
   onPress?: (e: Event) => void;
   focusable?: boolean;
   enableFocusStyle?: boolean;
-  borderStyle?: { borderWidth: number; borderColor: string };
+  focusStyle?: { borderWidth: number; borderColor: string };
   gradientProps?: { colorTop: string; colorBottom: string };
   enableGradient?: boolean;
 }
@@ -59,7 +59,7 @@ const TvFocusWrapperView = React.forwardRef(
         onPress={props.onPress}
         scale={props.scale ?? '1'}
         enableFocusStyle={props.enableFocusStyle ?? true}
-        borderStyle={props.borderStyle}
+        focusStyle={props.focusStyle}
         enableGradient={props.enableGradient}
         gradientProps={props.gradientProps}
       >

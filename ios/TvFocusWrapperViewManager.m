@@ -6,7 +6,7 @@
 RCT_EXPORT_VIEW_PROPERTY(scale, NSString)
 RCT_EXPORT_VIEW_PROPERTY(focusable, NSNumber)
 RCT_EXPORT_VIEW_PROPERTY(enableFocusStyle, NSNumber)
-RCT_EXPORT_VIEW_PROPERTY(borderStyle, NSDictionary)
+RCT_EXPORT_VIEW_PROPERTY(focusStyle, NSDictionary)
 RCT_EXPORT_VIEW_PROPERTY(enableGradient, NSNumber)
 RCT_EXPORT_VIEW_PROPERTY(gradientProps, NSDictionary)
 RCT_EXPORT_VIEW_PROPERTY(onFocus, RCTBubblingEventBlock)
